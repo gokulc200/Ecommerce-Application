@@ -40,7 +40,7 @@ app.post("/pay", async (req, res) => {
     });
 
     res.json({ id: session.id });
-    res.redirect("https://gokul-ecommerce-app.netlify.app/success")
+    // res.redirect("https://gokul-ecommerce-app.netlify.app/success")
   } catch (error) {
     console.error(error);
     res.status(500).send("Payment failed");
