@@ -63,7 +63,7 @@ app.post("/pay", async (req, res) => {
     const { amount, token } = req.body;
 
     const session = await stripe.checkout.sessions.create({
-      payment_method_types: ["card"],
+      // payment_method_types: ["card"],
       line_items: [
         {
           price_data: {
