@@ -35,11 +35,12 @@ app.post("/pay", async (req, res) => {
         },
       ],
       mode: "payment",
-      success_url: "https://gokul-ecommerce-app.netlify.app/success?session_id={CHECKOUT_SESSION_ID}", // Replace with your success URL
-      cancel_url: "https://gokul-ecommerce-app.netlify.app/cancel", // Replace with your cancel URL
+      // success_url: "https://gokul-ecommerce-app.netlify.app/success?session_id={CHECKOUT_SESSION_ID}", // Replace with your success URL
+      // cancel_url: "https://gokul-ecommerce-app.netlify.app/cancel", // Replace with your cancel URL
     });
 
     res.json({ id: session.id });
+    res.redirect("https://gokul-ecommerce-app.netlify.app/success")
   } catch (error) {
     console.error(error);
     res.status(500).send("Payment failed");
