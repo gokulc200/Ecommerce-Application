@@ -16,6 +16,13 @@ app.get("/", (req, res) => {
   res.send("Hello World!");
 });
 
+app.get('/success', async (req, res) => {
+  const session = await stripe.checkout.sessions.retrieve(req.query.session_id);
+  const customer = await stripe.customers.retrieve(session.customer);
+
+  res.send(`<html><body><h1>Thanks for your order, ${customer.name}!</h1></body></html>`);
+});
+
 app.post("/pay", async (req, res) => {
   try {
     const { amount, token } = req.body;
