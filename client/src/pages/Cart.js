@@ -29,31 +29,8 @@ const Cart = () => {
       toast.error("Please sign in to Checkout");
     }
   };
-  // const payment = async (token) => {
-  //   await axios.post("http://localhost:8001/pay", {
-  //     amount: totalAmt * 100,
-  //     token: token,
-  //   });
-  // };
 
   const stripePromise = loadStripe('pk_test_51NOKzXSGA5VATo8KS9U3k4Qy4PdYDrgRWkRgjaBQkJMaOupqDkkA8wYLPQrpK0RV1V5BCx0uqJAotRCwwSv3adwk00nwJq35Qw'); // Replace with your Stripe publishable key
-
-  // const payment = async (token) => {
-  //   const stripe = await stripePromise;
-  //   const response = await fetch("http://localhost:8001/pay", {
-  //     method: "POST",
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     },
-  //     body: JSON.stringify({
-  //       amount: totalAmt * 100,
-  //       token: token.id,
-  //     }),
-  //   });
-
-  //   const data = await response.json();
-  //   await stripe.redirectToCheckout({ sessionId: data.sessionId });
-  // };
 
   const [stripe, setStripe] = useState(null);
 
@@ -124,24 +101,6 @@ const Cart = () => {
             </button>
             {payNow && (
               <div className="w-full mt-6 flex items-center justify-center">
-                {/* <StripeCheckout
-                  stripeKey="pk_test_51NOKzXSGA5VATo8KS9U3k4Qy4PdYDrgRWkRgjaBQkJMaOupqDkkA8wYLPQrpK0RV1V5BCx0uqJAotRCwwSv3adwk00nwJq35Qw"
-                  name="Bazar Online Shopping"
-                  amount={totalAmt * 100}
-                  label="Pay to bazar"
-                  description={`Your Payment amount is $${totalAmt}`}
-                  token={payment}
-                  email={userInfo.email}
-                /> */}
-                {/* <StripeCheckout
-                  stripeKey="pk_test_51NOKzXSGA5VATo8KS9U3k4Qy4PdYDrgRWkRgjaBQkJMaOupqDkkA8wYLPQrpK0RV1V5BCx0uqJAotRCwwSv3adwk00nwJq35Qw"
-                  name="Bazar Online Shopping"
-                  amount={totalAmt * 100}
-                  label="Pay to bazar"
-                  description={`Your Payment amount is $${totalAmt}`}
-                  token={payment}
-                  email={userInfo.email}
-                /> */}
                 <button onClick={handlePayment}>Pay with Stripe</button>
               </div>
             )}
