@@ -8,7 +8,7 @@ app.use(cors());
 app.use(express.json());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-const port = process.env.PORT || 8015;
+const port = process.env.PORT || 443;
 // const Stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY); // Replace with your Stripe secret key
