@@ -8,7 +8,7 @@ app.use(cors());
 app.use(express.json());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-const port = process.env.PORT;
+const port = process.env.PORT || 8015;
 // const Stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY); // Replace with your Stripe secret key
@@ -77,7 +77,7 @@ app.post("/pay", async (req, res) => {
         },
       ],
       mode: "payment",
-      success_url: "http://localhost:3005/success", // Replace with your success URL
+      success_url: "http://localhost:3004/success", // Replace with your success URL
       cancel_url: "http://localhost:8015/cancel", // Replace with your cancel URL
     });
 

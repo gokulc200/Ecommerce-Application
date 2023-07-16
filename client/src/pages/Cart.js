@@ -68,7 +68,7 @@ const Cart = () => {
 
   const handlePayment = async () => {
     try {
-      const response = await axios.post("http://localhost:8008/pay", {
+      const response = await axios.post("https://test-ecommecre.onrender.com/pay", {
         amount: totalAmt, // Pass the total amount in dollars
       });
       const session = response.data;
