@@ -77,8 +77,8 @@ app.post("/pay", async (req, res) => {
         },
       ],
       mode: "payment",
-      success_url: "http://localhost:3004/success", // Replace with your success URL
-      cancel_url: "http://localhost:8015/cancel", // Replace with your cancel URL
+      success_url: "https://master--super-kulfi-9f45b8.netlify.app/success", // Replace with your success URL
+      cancel_url: "https://master--super-kulfi-9f45b8.netlify.app/cancel", // Replace with your cancel URL
     });
 
     res.json({ id: session.id });
