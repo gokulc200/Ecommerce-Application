@@ -46,6 +46,9 @@ const Cart = () => {
   }, []);
 
   const handlePayment = async () => {
+    // Payment successful, reset the cart
+    dispatch(resetCart());
+      
     try {
       const response = await axios.post("https://gokul-ecommerce.onrender.com/pay", {
         amount: totalAmt, // Pass the total amount in dollars
@@ -55,8 +58,6 @@ const Cart = () => {
         sessionId: session.id,
       });
 
-      // Payment successful, reset the cart
-        dispatch(resetCart());
       
       if (error) {
         console.error(error);
