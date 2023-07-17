@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { HiOutlineArrowLeft } from "react-icons/hi";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { resetCart } from "../redux/bazarSlice";
 import { ToastContainer, toast } from "react-toastify";
 import { Link } from "react-router-dom";
 import CartItem from "../components/CartItem";
@@ -13,6 +14,7 @@ const Cart = () => {
   const userInfo = useSelector((state) => state.bazar.userInfo);
   const [payNow, setPayNow] = useState(false);
   const [totalAmt, setTotalAmt] = useState("");
+  const dispatch = useDispatch();
   useEffect(() => {
     let price = 0;
     productData.map((item) => {
@@ -52,6 +54,12 @@ const Cart = () => {
       const { error } = await stripe.redirectToCheckout({
         sessionId: session.id,
       });
+
+      if (response.status === 200 && response.data.success) {
+        // Payment successful, reset the cart
+        dispatch(resetCart());
+        // Additional logic or actions after successful payment
+      }
 
       if (error) {
         console.error(error);
