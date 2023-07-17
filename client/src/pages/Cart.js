@@ -55,12 +55,9 @@ const Cart = () => {
         sessionId: session.id,
       });
 
-      if (response.status === 200 && response.data.success) {
-        // Payment successful, reset the cart
+      // Payment successful, reset the cart
         dispatch(resetCart());
-        // Additional logic or actions after successful payment
-      }
-
+      
       if (error) {
         console.error(error);
         // Handle error
