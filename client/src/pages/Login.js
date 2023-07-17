@@ -65,7 +65,7 @@ const Login = () => {
   // ============== Github Login End here =======================
   return (
     <div className="w-screen h-4/5 flex flex-col items-center justify-center gap-9 py-52 md:py-56">
-      <div className="w-full flex items-center justify-center gap-10">
+      <div className="w-full flex flex-col md:flex-row items-center justify-center gap-10">
         <div
           onClick={handleLogin}
           className="text-base w-64 h-16 tracking-wide border-[1px] border-gray-400 rounded-md flex items-center justify-center gap-2 hover:bg-blue-600 cursor-pointer hover:text-white duration-300"
@@ -82,7 +82,7 @@ const Login = () => {
           </button>
         )}
       </div>
-      <div className="w-full flex items-center justify-center gap-10">
+      <div className="w-full flex flex-col md:flex-row items-center justify-center gap-10">
         <div
           onClick={githubLogin}
           className="text-base w-64 h-16 tracking-wide border-[1px] border-gray-400 rounded-md flex items-center justify-center gap-2 hover:bg-blue-600 cursor-pointer hover:text-white duration-300"

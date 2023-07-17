@@ -16,12 +16,12 @@ app.get("/", (req, res) => {
   res.send("Hello World!");
 });
 
-app.get('/success', async (req, res) => {
-  const session = await stripe.checkout.sessions.retrieve(req.query.session_id);
-  const customer = await stripe.customers.retrieve(session.customer);
+// app.get('/success', async (req, res) => {
+//   const session = await stripe.checkout.sessions.retrieve(req.query.session_id);
+//   const customer = await stripe.customers.retrieve(session.customer);
 
-  res.send(`<html><body><h1>Thanks for your order, ${customer.name}!</h1></body></html>`);
-});
+//   res.send(`<html><body><h1>Thanks for your order, ${customer.name}!</h1></body></html>`);
+// });
 
 app.post("/pay", async (req, res) => {
   try {
@@ -43,7 +43,7 @@ app.post("/pay", async (req, res) => {
       ],
       mode: "payment",
       success_url: "https://gokul-ecommerce-app.netlify.app/", // Replace with your success URL
-      cancel_url: "https://gokul-ecommerce-app.netlify.app/cancel", // Replace with your cancel URL
+      cancel_url: "https://gokul-ecommerce-app.netlify.app/", // Replace with your cancel URL
     });
 
     res.json({ id: session.id });

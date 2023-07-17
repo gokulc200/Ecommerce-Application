@@ -30,10 +30,10 @@ const Footer = () => {
         <div>
           <h2 className="text-2xl font-semibold text-white mb-4 mt-4">Locate us</h2>
           <div className="text-base flex flex-col gap-2">
-            <p>MBD,Ruwi, Muscat-Oman</p>
+            <p>Texas, United States</p>
             <p>Mobile: 9876543210</p>
             <p>Phone: 01234 24769</p>
-            <p>e-mail: bazar@gmail.com</p>
+            <p>e-mail: bazarecommerce@gmail.com</p>
           </div>
         </div>
         <div>
@@ -65,7 +65,7 @@ const Footer = () => {
             </p>
           </div>
         </div>
-        <div className="flex flex-col justify-center">
+        <div className="flex flex-col justify-center pt-4">
           <input
             className="bg-transparent border px-4 py-2 text-sm"
             type="text"
